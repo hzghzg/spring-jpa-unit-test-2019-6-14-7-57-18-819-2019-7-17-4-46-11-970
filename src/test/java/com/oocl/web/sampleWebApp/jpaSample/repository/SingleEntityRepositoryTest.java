@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class SingleEntityRepositoryTest {
+public class SingleEntityRepositoryTest {
     @Autowired
     private SingleEntityRepository singleEntityRepository;
 
