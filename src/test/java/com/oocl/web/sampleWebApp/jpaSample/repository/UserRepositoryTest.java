@@ -35,5 +35,6 @@ public class UserRepositoryTest {
     Assertions.assertEquals("test", userList.get(0).getName());
   }
 
+
 }
 

@@ -31,6 +31,16 @@ class SingleEntityRepositoryTest {
         //then
         Assertions.assertEquals(1,singleEntityList.size());
         Assertions.assertEquals("hzg",singleEntityList.get(0).getName());
+    }
 
+    @Test
+    public void should_throw_exception_when_call_saveandflush_given_an_single_entity_whose_name_length_more_than_64() {
+        SingleEntity singleEntity=new SingleEntity("sdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsddddddddddddddddddssss");
+        Assertions.assertThrows(Exception.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                singleEntityRepository.saveAndFlush(singleEntity);
+            }
+        });
     }
 }
