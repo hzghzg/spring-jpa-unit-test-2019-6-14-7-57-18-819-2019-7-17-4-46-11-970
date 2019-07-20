@@ -1,26 +1,19 @@
 package com.oocl.web.sampleWebApp.jpaSample.entity;
 
 import javax.persistence.*;
-import java.lang.reflect.GenericArrayType;
+import java.util.List;
 
 @Entity
-public class SingleEntity {
+public class RelatedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(length = 64,nullable =false)
+    @Column(length =64,nullable = false)
     private String name;
-    public SingleEntity() {
-    }
+    @OneToOne(cascade = CascadeType.ALL)
+    private SingleEntity singleEntity;
 
-    public SingleEntity(String name) {
-        this.name = name;
-    }
-
-    public SingleEntity(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public RelatedEntity() {
     }
 
     public Long getId() {
@@ -31,11 +24,19 @@ public class SingleEntity {
         return name;
     }
 
+    public SingleEntity getSingleEntity() {
+        return singleEntity;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setSingleEntity(SingleEntity singleEntity) {
+        this.singleEntity = singleEntity;
     }
 }
