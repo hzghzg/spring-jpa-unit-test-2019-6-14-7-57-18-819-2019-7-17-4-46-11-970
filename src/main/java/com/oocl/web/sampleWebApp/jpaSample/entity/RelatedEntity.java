@@ -1,6 +1,7 @@
 package com.oocl.web.sampleWebApp.jpaSample.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -11,6 +12,7 @@ public class RelatedEntity {
     @Column(length =64,nullable = false)
     private String name;
     @OneToOne(cascade = CascadeType.ALL)
+    @NotNull
     private SingleEntity singleEntity;
 
     public RelatedEntity() {

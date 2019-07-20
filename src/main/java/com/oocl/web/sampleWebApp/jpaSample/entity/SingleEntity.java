@@ -14,6 +14,7 @@ public class SingleEntity {
     public SingleEntity() {
     }
 
+
     public SingleEntity(String name) {
         this.name = name;
     }

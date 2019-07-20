@@ -36,4 +36,17 @@ public class RelatedEntityRepositoryTest {
         //then
         Assertions.assertEquals(singleEntity.getName(),singleEntityRepository.findAll().get(0).getName());
     }
+
+    @Test
+    public void should_throw_exception_when_save_the_relatedentity_no_given_a_relateentity(){
+        //given
+        RelatedEntity relatedEntity=new RelatedEntity();
+        relatedEntity.setName("relatedentity1");
+
+        //when
+        //then
+        assertThrows(Exception.class,()->{
+            relatedEntityRepository.saveAndFlush(relatedEntity);
+        });
+    }
 }
